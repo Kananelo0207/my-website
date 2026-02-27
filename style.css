@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 :root{
   --bg:#0b0b10; --card:#141424; --text:#f3f3f7; --muted:#b7b7c8;
   --line:#2a2a3d; --accent:#7c5cff; --accent2:#2dd4bf;
@@ -359,7 +359,7 @@ button:active{transform:translateY(1px) scale(.98)}
   .reveal, .reveal.show { opacity:1; transform:none; filter:none; transition:none; }
   .card, .btn, button { transition:none; }
   .links a::after{ transition:none; }
-=======
+
 :root{
   --bg:#0b0b10; --card:#141424; --text:#f3f3f7; --muted:#b7b7c8;
   --line:#2a2a3d; --accent:#7c5cff; --accent2:#2dd4bf;
@@ -719,5 +719,6 @@ button:hover{border-color:#555}
 @keyframes barIn{
   from{ transform: scaleX(.2); opacity:.4; }
   to{ transform: scaleX(1); opacity:1; }
->>>>>>> 9fcf4e21c5988ef26d32d417ff63ee4a220c70f6
+
+}
 }
