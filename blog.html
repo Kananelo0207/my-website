@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog</title>
+  <meta name="description" content="Portfolio, projects, and blog by Kananelo Ramathe." />
+<link rel="icon" href="images/me.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="stars"></div>
+  <div class="grain"></div>
+</div>
+
+  <div id="loader" class="loader" aria-live="polite" aria-label="Loading site">
+    <div class="loader-card">
+      <div class="loader-ring"></div>
+      <p class="loader-text">Loading…</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="logo" href="index.html">Kani's Blog</a>
+    <div class="links">
+      <a href="index.html">Portfolio</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="blog.html">Blog</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="pagehead">
+      <h1>Blog</h1>
+      <p class="muted">Short posts about what I’m learning and building.</p>
+    </header>
+
+    <section class="card">
+      <h2>
+  <a href="posts/first-post.html" style="color:inherit;text-decoration:none">
+    Post title #1
+  </a>
+</h2>
+      <p class="muted">Feb 26, 2026 • 2 min read</p>
+      <p>Write a short intro. You can keep posts short — even 6–10 lines.</p>
+    </section>
+
+    <section class="card">
+      <h2>
+  <a href="posts/second-post.html" style="color:inherit;text-decoration:none">
+    Post title #2
+  </a>
+</h2>
+      <p class="muted">Feb 20, 2026 • 3 min read</p>
+      <p>Another short post. Later we can turn these into separate pages.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Kani's Blog</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <button id="topBtn" class="top-btn" aria-label="Back to top">↑</button>
+</body>
+</html>

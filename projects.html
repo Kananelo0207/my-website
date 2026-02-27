@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kani's Projects</title>
+  <meta name="description" content="Portfolio, projects, and blog by Kananelo Ramathe." />
+<link rel="icon" href="images/me.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="stars"></div>
+  <div class="grain"></div>
+</div>
+
+  <div id="loader" class="loader" aria-live="polite" aria-label="Loading site">
+    <div class="loader-card">
+      <div class="loader-ring"></div>
+      <p class="loader-text">Loading…</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="logo" href="index.html">Kani's Projects</a>
+    <div class="links">
+      <a href="index.html">Portfolio</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="pagehead">
+      <h1>Projects</h1>
+      <p class="muted">A few things I’ve built.</p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+  <h2>KnockoutClash ⚔️</h2>
+
+  <p class="muted">
+    Neon cyberpunk Rock–Paper–Scissors–Water–Fire game with Lock-In mode, REVEAL animation,
+    win sparks, and a Hard CPU that learns your patterns.
+  </p>
+
+  <div class="tags">
+    <span>Blazor</span><span>C#</span><span>WebAssembly</span>
+  </div>
+
+  <div class="actions">
+    <a class="btn small" href="knockoutclash/" target="_blank" rel="noopener">Live</a>
+
+    <a class="btn small ghost" href="#" target="_blank" rel="noopener">Code</a>
+  </div>
+</article>
+
+      <article class="card">
+        <h2>Project 2</h2>
+        <p class="muted">One sentence: what it does + what you used.</p>
+        <div class="tags">
+          <span>Design</span><span>Writing</span>
+        </div>
+        <div class="actions">
+          <a class="btn small" href="#">Live</a>
+          <a class="btn small ghost" href="#">Code</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Project 3</h2>
+        <p class="muted">One sentence: what it does + what you used.</p>
+        <div class="tags">
+          <span>Anything</span><span>Else</span>
+        </div>
+        <div class="actions">
+          <a class="btn small" href="#">Live</a>
+          <a class="btn small ghost" href="#">Code</a>
+        </div>
+      </article>
+
+      <article class="card">
+  <h2>Snake Multiplayer 🐍</h2>
+  <p class="muted">
+    Turn-based multiplayer Snake game originally built in C# (WPF) and rebuilt in JavaScript using HTML Canvas.
+  </p>
+
+  <div class="tags">
+    <span>JavaScript</span>
+    <span>Canvas</span>
+    <span>Game Logic</span>
+  </div>
+
+  <div class="actions">
+    <a class="btn small" href="snake.html">Play</a>
+    <a class="btn small ghost" href="#">Code</a>
+  </div>
+</article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span>Kani's Projects</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <button id="topBtn" class="top-btn" aria-label="Back to top">↑</button>
+</body>
+</html>
