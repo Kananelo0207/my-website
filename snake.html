@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -91,4 +92,99 @@
   <script src="script.js"></script>
   <script src="snake.js"></script>
 </body>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snake Multiplayer</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .snake-wrap{display:grid;gap:14px}
+    .hud{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    canvas{
+      width:min(720px,96vw);
+      aspect-ratio:1/1;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#000;
+      display:block;
+    }
+    .leader{white-space:pre-line}
+    .kbd{font-size:12px;padding:4px 8px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .overlay{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      background:rgba(0,0,0,.55);
+      border-radius:16px;
+    }
+    .overlay h2{
+      margin:0;
+      font-family: Consolas, monospace;
+      letter-spacing:1px;
+      text-align:center;
+      padding:0 16px;
+      white-space:pre-line;
+    }
+    .stage{
+      position:relative;
+      display:grid;
+      place-items:center;
+      gap:10px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="logo" href="index.html">Kananelo</a>
+    <div class="links">
+      <a href="index.html">Portfolio</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+    </div>
+  </nav>
+
+  <main class="wrap snake-wrap">
+    <header class="pagehead">
+      <h1>Snake Multiplayer 🐍</h1>
+      <p class="muted"><span class="kbd">Arrow keys</span> • Press any key to start</p>
+    </header>
+
+    <section class="hud">
+      <div class="card" style="flex:1;min-width:240px;margin:0">
+        <div class="row"><strong id="currentPlayer">Current Player: —</strong></div>
+        <div class="muted" id="scoreLine">Press Any Key To Start</div>
+      </div>
+
+      <div class="row">
+        <button id="restartBtn">Restart</button>
+        <a class="btn ghost" href="projects.html">← Back</a>
+      </div>
+    </section>
+
+    <section class="card stage">
+      <canvas id="game" width="600" height="600" aria-label="Snake game canvas"></canvas>
+
+      <div id="overlay" class="overlay">
+        <h2 id="overlayText">PRESS ANY KEY TO START</h2>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Leaderboard (Top 5)</h2>
+      <div class="leader muted" id="leaderboard">No scores yet.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Kananelo</small>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="snake.js"></script>
+</body>
+>>>>>>> 9fcf4e21c5988ef26d32d417ff63ee4a220c70f6
 </html>
