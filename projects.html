@@ -11,7 +11,14 @@
 </head>
 
 <body>
-
+<!-- Splash overlay -->
+<div id="splash" class="splash hidden" aria-hidden="true">
+  <div class="splash-card">
+    <div class="loader-ring"></div>
+    <div class="splash-title">Launching KnockoutClash…</div>
+    <div class="splash-sub">Get ready ⚔️</div>
+  </div>
+</div>
   <div class="bg">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -55,8 +62,11 @@
         </div>
 
         <div class="actions">
-  <a class="btn small" href="knockoutclash/">Play (Website)</a>
+
 <a class="btn small ghost" href="knockoutclash/index.local.html">Play (Local)</a>
+<a class="btn small" href="knockoutclash/index.html" onclick="event.preventDefault(); goWithSplash(this.href);">
+  Play
+</a>
   <a class="btn small ghost"
      href="https://github.com/Kananelo0207/my-website/tree/main/knockoutclash"
      target="_blank" rel="noreferrer">

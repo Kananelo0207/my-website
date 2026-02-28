@@ -722,3 +722,42 @@ button:hover{border-color:#555}
 
 }
 }
+/* Splash overlay (Projects -> Game) */
+.splash {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+
+.splash.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.splash.hidden { display: none; }
+
+.splash-card {
+  width: min(420px, 92vw);
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+  text-align: center;
+  animation: popIn .28s ease both;
+}
+
+.splash-title { margin-top: 10px; font-weight: 800; font-size: 18px; }
+.splash-sub { margin-top: 4px; opacity: .8; font-size: 13px; }
+
+@keyframes popIn {
+  from { transform: translateY(10px) scale(.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}

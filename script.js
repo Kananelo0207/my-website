@@ -155,3 +155,15 @@ if (topBtn) {
 
 }
 }
+function goWithSplash(url) {
+  const splash = document.getElementById("splash");
+  if (!splash) { window.location.href = url; return; }
+
+  splash.classList.remove("hidden");
+  splash.classList.add("show");
+  splash.setAttribute("aria-hidden", "false");
+
+  setTimeout(() => {
+    window.location.href = url;
+  }, 650);
+}
