@@ -34,9 +34,7 @@ body{
     linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
-/* =========================
-   Layout
-========================= */
+
 
 .wrap{
   max-width: var(--max);
@@ -44,11 +42,10 @@ body{
   padding: 34px 22px;
 }
 
+
 .muted{ color: var(--muted); }
 
-/* =========================
-   Nav
-========================= */
+
 
 .nav{
   position: sticky;
@@ -90,14 +87,12 @@ body{
   background: rgba(255,255,255,.06);
 }
 
-/* =========================
-   HERO (FIXED)
-========================= */
+
 
 .hero{
   display: flex;
-  flex-direction: column;      /* stack vertically */
-  align-items: flex-start;     /* left aligned */
+  flex-direction: column;     
+  align-items: flex-start;     
   gap: 14px;
   padding: 18px 0 6px;
 }
@@ -138,9 +133,7 @@ body{
   margin-top: 6px;
 }
 
-/* =========================
-   Buttons
-========================= */
+
 
 .btn{
   display:inline-block;
@@ -165,9 +158,7 @@ body{
   border-radius: 10px;
 }
 
-/* =========================
-   Cards / Grid
-========================= */
+
 
 .grid{
   display:grid;
@@ -184,9 +175,7 @@ body{
   box-shadow: var(--shadow);
 }
 
-/* =========================
-   Footer
-========================= */
+
 
 .footer{
   text-align:center;
@@ -196,9 +185,7 @@ body{
   margin-top: 22px;
 }
 
-/* =========================
-   Skills (kept but hidden)
-========================= */
+
 
 #skills{
   display:none !important;
@@ -210,7 +197,7 @@ body{
 
 .skill-row{
   display: flex;
-  justify-content: space-between; /* pushes them far apart */
+  justify-content: space-between; 
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255,255,255,.08);

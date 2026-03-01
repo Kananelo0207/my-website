@@ -1,9 +1,9 @@
-// ====== Year ======
+
 document.querySelectorAll("#year").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
 
-// ====== "Say Hello" ======
+
 const hiBtn = document.getElementById("hiBtn");
 const msg = document.getElementById("msg");
 if (hiBtn && msg) {
@@ -12,7 +12,7 @@ if (hiBtn && msg) {
   });
 }
 
-// ====== Glow layer ======
+
 if (!document.querySelector(".glow")) {
   const glow = document.createElement("div");
   glow.className = "glow";
@@ -30,7 +30,7 @@ window.addEventListener(
   { passive: true }
 );
 
-// ====== Reveal on scroll ======
+
 const toReveal = [
   ...document.querySelectorAll(".card"),
   ...document.querySelectorAll(".hero"),
@@ -50,7 +50,7 @@ const io = new IntersectionObserver(
 
 toReveal.forEach((el) => io.observe(el));
 
-// ====== Card tilt ======
+
 document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const r = card.getBoundingClientRect();
@@ -70,7 +70,7 @@ document.querySelectorAll(".card").forEach((card) => {
   });
 });
 
-// ====== Button magnet ======
+
 document.querySelectorAll(".btn, button").forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     const r = el.getBoundingClientRect();
@@ -84,7 +84,7 @@ document.querySelectorAll(".btn, button").forEach((el) => {
   });
 });
 
-// ====== Back to top ======
+
 const topBtn = document.getElementById("topBtn");
 if (topBtn) {
   const toggleTop = () => {
@@ -99,9 +99,9 @@ if (topBtn) {
   );
 }
 
-// ====== KnockoutClash Play button (no splash, no index.local.html) ======
+
 const kocPlay = document.getElementById("kocPlay");
-if (kocPlay) {
-  // Always go to the real file you have now:
+if (kocPlay) 
+{
   kocPlay.href = "knockoutclash/index.html";
 }

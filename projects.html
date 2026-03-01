@@ -22,7 +22,7 @@
 <body>
 
 
-  <!-- Background FX -->
+
   <div class="bg">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -50,7 +50,7 @@
 
     <section class="grid">
 
-      <!-- KnockoutClash -->
+
       <article class="card">
         <h2>KnockoutClash ⚔️</h2>
 
@@ -76,7 +76,7 @@
         </div>
       </article>
 
-      <!-- Snake -->
+
       <article class="card">
         <h2>Snake Multiplayer 🐍</h2>
 
@@ -96,7 +96,7 @@
         </div>
       </article>
 
-      <!--Hangman-->
+
 <article class="card">
   <h2>Hangman 🔤</h2>
   <p class="muted">Hangman with categories + hints + difficulty + CPU mode + score history.</p>
@@ -123,7 +123,7 @@
 
   <script src="script.js"></script>
 
-  <!-- KnockoutClash Play Button Logic -->
+
   <script>
     (function () {
       const kocPlay = document.getElementById("kocPlay");
@@ -133,8 +133,7 @@
         location.hostname === "127.0.0.1" ||
         location.hostname === "localhost";
 
-      // Local → go to index.local.html (which redirects to index.html)
-      // GitHub Pages → go directly to index.html
+
       const target = isLocal
         ? "knockoutclash/index.local.html"
         : "knockoutclash/index.html";
@@ -142,14 +141,14 @@
       kocPlay.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Show splash
+
         const splash = document.getElementById("splash");
         if (splash) {
           splash.classList.remove("hidden");
           splash.classList.add("show");
         }
 
-        // Small delay for animation
+        
         setTimeout(() => {
           window.location.href = target;
         }, 800);
