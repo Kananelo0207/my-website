@@ -1,35 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KnockoutClashWeb</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KnockoutClash ⚔️</title>
+  <meta name="description" content="Neon cyberpunk Rock Paper Scissors Water Fire." />
+  <link rel="icon" href="../images/me.jpg" />
 
-  <!-- GitHub Pages base -->
-  <base href="/my-website/knockoutclash/" />
-
-  <!-- Your portfolio theme -->
-  <link rel="stylesheet" href="../style.css" />
-
-  <!-- Blazor / app styles -->
-  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/app.css" />
-  <link rel="stylesheet" href="css/knockoutclash.css" />
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="KnockoutClashWeb.styles.css" rel="stylesheet" />
-
-  <style>
-    /* Put Blazor app above the background */
-    .bg { position: fixed; inset: 0; z-index: 0; }
-    #app { position: relative; z-index: 1; }
-  </style>
+  <!-- IMPORTANT: this is the ONLY CSS this HTML needs -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Same background as portfolio -->
-  <div class="bg">
+  <!-- Name Modal (shows on load) -->
+<div id="nameModal" class="koc-modal" aria-hidden="true">
+  <div class="koc-modal-card" role="dialog" aria-modal="true" aria-labelledby="nameTitle">
+    <h2 id="nameTitle">Enter player names</h2>
+    <p class="koc-muted">These show on the scoreboard.</p>
+
+    <div class="koc-modal-grid">
+      <label class="koc-field">
+        <span>Player 1</span>
+        <input id="nameP1" type="text" maxlength="16" placeholder="Player 1" />
+      </label>
+
+      <label class="koc-field" id="nameP2Wrap">
+        <span>Player 2</span>
+        <input id="nameP2" type="text" maxlength="16" placeholder="Player 2" />
+      </label>
+    </div>
+
+    <div class="koc-modal-actions">
+      <button id="nameSaveBtn" class="koc-btn primary">Start</button>
+      <button id="nameSkipBtn" class="koc-btn ghost" type="button">Skip</button>
+    </div>
+  </div>
+</div>
+  <!-- Background FX (same style as Snake page) -->
+  <div class="bg" aria-hidden="true">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="blob b3"></div>
@@ -37,24 +45,103 @@
     <div class="grain"></div>
   </div>
 
-  <div id="app">
-    <svg class="loading-progress">
-      <circle r="40%" cx="50%" cy="50%" />
-      <circle r="40%" cx="50%" cy="50%" />
-    </svg>
-    <div class="loading-progress-text"></div>
-  </div>
+  <a class="back-link" href="../projects.html">← Back to Projects</a>
 
-  <div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-  </div>
+  <main class="koc">
+    <header class="koc-head">
+      <h1 class="koc-title">KnockoutClash <span aria-hidden="true">⚔️</span></h1>
+      <p class="koc-sub">Rock • Paper • Scissors • Water • Fire</p>
+    </header>
 
-  <script src="score-history.js"></script>
-  <script src="_framework/blazor.webassembly.js"></script>
-  <script src="score-history.js"></script>
+    <section class="panel">
+      <div class="controls">
+        <label class="field">
+          <span>Mode</span>
+          <select id="mode">
+            <option value="cpu" selected>Player vs CPU</option>
+            <option value="pvp">Local PvP (2 Players)</option>
+          </select>
+        </label>
+
+        <label class="field" id="cpuField">
+          <span>CPU</span>
+          <select id="cpu">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Win Condition</span>
+          <select id="winTo">
+            <option value="3">First to 3</option>
+            <option value="5" selected>First to 5</option>
+            <option value="7">First to 7</option>
+          </select>
+        </label>
+
+        <div class="control-buttons">
+          <button class="btn ghost" id="resetBtn" type="button">Reset</button>
+          <button class="btn" id="fightBtn" type="button" disabled>Fight!</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="hud-card">
+          <div class="hud-label" id="p1Name">Player</div>
+          <div class="hud-num" id="pScore">0</div>
+        </div>
+
+        <div class="hud-card">
+          <div class="hud-label">Rounds</div>
+          <div class="hud-num" id="rounds">0</div>
+        </div>
+
+        <div class="hud-card">
+          <div class="hud-label" id="p2Name">CPU</div>
+          <div class="hud-num" id="cScore">0</div>
+        </div>
+      </div>
+
+      <div class="status" id="status">Status: Choose your move</div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Choose Your Move</h2>
+
+      <div class="moves" id="moves">
+        <button class="move" data-move="rock" type="button">Rock</button>
+        <button class="move" data-move="paper" type="button">Paper</button>
+        <button class="move" data-move="scissors" type="button">Scissors</button>
+        <button class="move ghost" data-move="water" type="button">Water</button>
+        <button class="move ghost" data-move="fire" type="button">Fire</button>
+      </div>
+
+      <div class="reveal">
+        <div class="pick">
+          <div class="pick-label" id="leftLabel">You</div>
+          <div class="pick-chip" id="youPick">—</div>
+        </div>
+
+        <div class="vs" aria-hidden="true">VS</div>
+
+        <div class="pick">
+          <div class="pick-label" id="rightLabel">CPU</div>
+          <div class="pick-chip" id="cpuPick">—</div>
+        </div>
+      </div>
+
+      <div class="log" id="log" aria-live="polite">
+        Battle results will appear here…
+        <div class="tip" id="tip">Tip: In PvP, Player 1 picks → Player 2 picks → Fight!</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- tiny glow layer driven by JS -->
+  <div class="glow" aria-hidden="true"></div>
+
+  <script src="koc-ui.js"></script>
 </body>
-
-
 </html>

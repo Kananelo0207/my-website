@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QMB17BQ721"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QMB17BQ721');
+</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>My Portfolio</title>
@@ -18,17 +27,13 @@
     <div class="grain"></div>
   </div>
 
-  <div id="loader" class="loader" aria-live="polite" aria-label="Loading site">
-    <div class="loader-card">
-      <div class="loader-ring"></div>
-      <p class="loader-text">Loading…</p>
-    </div>
-  </div>
+
 
   <nav class="nav">
     <a class="logo" href="index.html">Main Page</a>
     <div class="links">
       <a class="active" href="index.html">Portfolio</a>
+      <a href="cv.html">CV</a>
       <a href="projects.html">Projects</a>
       <a href="blog.html">Blog</a>
     </div>
@@ -43,6 +48,7 @@
     </div>
 
     <div class="cta">
+      <a class="btn small" href="files/Kananelo_Ramathe_CV.pdf" download>Download CV</a>
       <a class="btn" href="projects.html">See my projects</a>
       <a class="btn ghost" href="blog.html">Read my blog</a>
 
@@ -56,7 +62,7 @@
     </section>
 
     
-    <section class="grid">
+        <section class="grid">
       <div class="card">
         <h3>Skills</h3>
 
@@ -139,7 +145,8 @@
 
     <section class="card">
       <h2>Contact</h2>
-      <p>Email: kani4workonly@gmail.com OR kananeloramathe38@gmail.com</p>
+      <p>Email: kani4workonly@gmail.com</p> 
+      <p>Email: kananeloramathe38@gmail.com</p>
       <p>Phone Number: 0638403329</p>
 
       <button id="hiBtn">Say Hello</button>
@@ -148,7 +155,7 @@
   </main>
 
   <footer class="footer">
-    <small>© <span id="year"></span> K@n@nelo</small>
+    <small>© <span id="year"></span> Kananelo Ramathe's Website</small>
   </footer>
 
   <button id="topBtn" class="top-btn" aria-label="Back to top">↑</button>

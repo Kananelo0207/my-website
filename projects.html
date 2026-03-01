@@ -2,6 +2,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QMB17BQ721"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QMB17BQ721');
+</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kani's Projects</title>
@@ -11,14 +20,9 @@
 </head>
 
 <body>
-<!-- Splash overlay -->
-<div id="splash" class="splash hidden" aria-hidden="true">
-  <div class="splash-card">
-    <div class="loader-ring"></div>
-    <div class="splash-title">Launching KnockoutClash…</div>
-    <div class="splash-sub">Get ready ⚔️</div>
-  </div>
-</div>
+
+
+  <!-- Background FX -->
   <div class="bg">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -27,12 +31,7 @@
     <div class="grain"></div>
   </div>
 
-  <div id="loader" class="loader" aria-live="polite" aria-label="Loading site">
-    <div class="loader-card">
-      <div class="loader-ring"></div>
-      <p class="loader-text">Loading…</p>
-    </div>
-  </div>
+  
 
   <nav class="nav">
     <a class="logo" href="index.html">Kani's Projects</a>
@@ -51,38 +50,44 @@
 
     <section class="grid">
 
+      <!-- KnockoutClash -->
       <article class="card">
         <h2>KnockoutClash ⚔️</h2>
+
         <p class="muted">
-          Neon cyberpunk Rock-Paper-Scissors-Water-Fire game built with Blazor WebAssembly (PvP + Smart CPU).
+          Neon cyberpunk Rock-Paper-Scissors-Water-Fire game with PvP and smart CPU.
         </p>
 
         <div class="tags">
-          <span>Blazor</span><span>C#</span><span>WebAssembly</span>
+          <span>JavaScript</span>
+          <span>Game Logic</span>
+          <span>Neon UI</span>
         </div>
 
         <div class="actions">
+          <a class="btn small" id="kocPlay" href="#">Play</a>
 
-<a class="btn small ghost" href="knockoutclash/index.local.html">Play (Local)</a>
-<a class="btn small" href="knockoutclash/index.html" onclick="event.preventDefault(); goWithSplash(this.href);">
-  Play
-</a>
-  <a class="btn small ghost"
-     href="https://github.com/Kananelo0207/my-website/tree/main/knockoutclash"
-     target="_blank" rel="noreferrer">
-    Code
-  </a>
-</div>
+          <a class="btn small ghost"
+             href="https://github.com/Kananelo0207/my-website/tree/main/knockoutclash"
+             target="_blank"
+             rel="noreferrer">
+            Code
+          </a>
+        </div>
       </article>
 
+      <!-- Snake -->
       <article class="card">
         <h2>Snake Multiplayer 🐍</h2>
+
         <p class="muted">
-          Turn-based multiplayer Snake game originally built in C# (WPF) and rebuilt in JavaScript using HTML Canvas.
+          Turn-based multiplayer Snake game built in JavaScript using HTML Canvas.
         </p>
 
         <div class="tags">
-          <span>JavaScript</span><span>Canvas</span><span>Game Logic</span>
+          <span>JavaScript</span>
+          <span>Canvas</span>
+          <span>Game Logic</span>
         </div>
 
         <div class="actions">
@@ -91,29 +96,20 @@
         </div>
       </article>
 
-      <article class="card">
-        <h2>Project 2</h2>
-        <p class="muted">One sentence: what it does + what you used.</p>
-        <div class="tags">
-          <span>Design</span><span>Writing</span>
-        </div>
-        <div class="actions">
-          <a class="btn small" href="#">Live</a>
-          <a class="btn small ghost" href="#">Code</a>
-        </div>
-      </article>
+      <!--Hangman-->
+<article class="card">
+  <h2>Hangman 🔤</h2>
+  <p class="muted">Hangman with categories + hints + difficulty + CPU mode + score history.</p>
 
-      <article class="card">
-        <h2>Project 3</h2>
-        <p class="muted">One sentence: what it does + what you used.</p>
-        <div class="tags">
-          <span>Anything</span><span>Else</span>
-        </div>
-        <div class="actions">
-          <a class="btn small" href="#">Live</a>
-          <a class="btn small ghost" href="#">Code</a>
-        </div>
-      </article>
+  <div class="tags">
+    <span>JavaScript</span><span>Canvas</span><span>Game UI</span>
+  </div>
+
+  <div class="actions">
+    <a class="btn small" href="hangman/">Play</a>
+    <a class="btn small ghost" href="https://github.com/Kananelo0207/my-website" target="_blank" rel="noreferrer">Code</a>
+  </div>
+</article>
 
     </section>
   </main>
@@ -124,7 +120,43 @@
 
 
   <button id="topBtn" class="top-btn" aria-label="Back to top">↑</button>
+
   <script src="script.js"></script>
+
+  <!-- KnockoutClash Play Button Logic -->
+  <script>
+    (function () {
+      const kocPlay = document.getElementById("kocPlay");
+      if (!kocPlay) return;
+
+      const isLocal =
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "localhost";
+
+      // Local → go to index.local.html (which redirects to index.html)
+      // GitHub Pages → go directly to index.html
+      const target = isLocal
+        ? "knockoutclash/index.local.html"
+        : "knockoutclash/index.html";
+
+      kocPlay.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Show splash
+        const splash = document.getElementById("splash");
+        if (splash) {
+          splash.classList.remove("hidden");
+          splash.classList.add("show");
+        }
+
+        // Small delay for animation
+        setTimeout(() => {
+          window.location.href = target;
+        }, 800);
+      });
+    })();
+  </script>
+
 </body>
 
 </html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hangman</title>
+  <link rel="stylesheet" href="hangman.css" />
+</head>
+
+<body>
+  <!-- Background FX (same vibe as your Snake/KnockoutClash) -->
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="stars"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="glow" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div>
+        <a class="back" href="../projects.html">← Back to Projects</a>
+        <h1 class="title">Hangman <span class="badge">Canvas</span></h1>
+        <p class="muted">Turn-based multiplayer • One-letter-at-a-time reveal • Hints • Score history</p>
+      </div>
+
+      <div class="hero-actions">
+        <button id="newGameBtn" class="btn">New Game</button>
+        <button id="resetHistoryBtn" class="btn ghost">Reset History</button>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="settings">
+        <div class="field">
+          <label>Mode</label>
+          <select id="mode">
+            <option value="pvp" selected>Local PvP (2 Players)</option>
+            <option value="cpu">Player vs CPU</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="easy">Easy (10 lives)</option>
+            <option value="normal" selected>Normal (8 lives)</option>
+            <option value="hard">Hard (6 lives)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Category</label>
+          <select id="category">
+            <option value="media" selected>Media</option>
+            <option value="tech">Tech</option>
+            <option value="biblical">Biblical</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Hint</label>
+          <button id="hintBtn" class="btn ghost small">Show Hint (-3)</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="stat">
+          <div class="stat-label" id="p1Label">Player 1</div>
+          <div class="stat-value" id="p1Score">0</div>
+          <div class="stat-sub">Score</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Lives</div>
+          <div class="stat-value" id="lives">8</div>
+          <div class="stat-sub">Remaining</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label" id="p2Label">Player 2</div>
+          <div class="stat-value" id="p2Score">0</div>
+          <div class="stat-sub">Score</div>
+        </div>
+      </div>
+
+      <div class="status" id="status">Status: Click “New Game” to start</div>
+      <div class="hint" id="hint" hidden></div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Hangman</h2>
+        <div class="canvas-wrap">
+          <canvas id="hangCanvas" width="520" height="360"></canvas>
+          <div class="flash" id="flash"></div>
+        </div>
+
+        <div class="word" id="word">—</div>
+
+        <div class="guess-row">
+          <input id="guessInput" class="input" maxlength="1" placeholder="Type a letter…" />
+          <button id="guessBtn" class="btn">Guess</button>
+          <button id="skipBtn" class="btn ghost">Skip Turn</button>
+        </div>
+
+        <div class="used">
+          <div class="used-title">Used letters</div>
+          <div class="used-list" id="usedLetters">—</div>
+        </div>
+
+        <pre class="log" id="log">Battle log will appear here…</pre>
+      </article>
+
+      <aside class="card">
+        <h2>Score History</h2>
+        <p class="muted">Saved in your browser (localStorage).</p>
+        <div class="history" id="history"></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="hangman.js"></script>
+</body>
+</html>
