@@ -55,7 +55,7 @@
         <h2>KnockoutClash ⚔️</h2>
 
         <p class="muted">
-          Neon cyberpunk Rock-Paper-Scissors-Water-Fire game with PvP and smart CPU.
+          Rock-Paper-Scissors-Water-Fire game with PvP and smart CPU.
         </p>
 
         <div class="tags">
@@ -91,7 +91,7 @@
         </div>
 
         <div class="actions">
-          <a class="btn small" href="snake.html">Play</a>
+          <a class="btn small" href="snake/snake.html">Play</a>
           <a class="btn small ghost" href="#">Code</a>
         </div>
       </article>
@@ -99,10 +99,13 @@
 
 <article class="card">
   <h2>Hangman 🔤</h2>
-  <p class="muted">Hangman with categories + hints + difficulty + CPU mode + score history.</p>
+  
+  <p class="muted">A Hangman game with hints, difficulty, CPU mode and score history.</p>
 
   <div class="tags">
-    <span>JavaScript</span><span>Canvas</span><span>Game UI</span>
+    <span>JavaScript</span>
+    <span>Canvas</span>
+    <span>Game UI</span>
   </div>
 
   <div class="actions">
@@ -125,7 +128,8 @@
 
 
   <script>
-    (function () {
+    (function () 
+    {
       const kocPlay = document.getElementById("kocPlay");
       if (!kocPlay) return;
 
@@ -138,18 +142,21 @@
         ? "knockoutclash/index.local.html"
         : "knockoutclash/index.html";
 
-      kocPlay.addEventListener("click", function (e) {
+      kocPlay.addEventListener("click", function (e) 
+      {
         e.preventDefault();
 
 
         const splash = document.getElementById("splash");
-        if (splash) {
+        if (splash) 
+        {
           splash.classList.remove("hidden");
           splash.classList.add("show");
         }
 
         
-        setTimeout(() => {
+        setTimeout(() => 
+        {
           window.location.href = target;
         }, 800);
       });
