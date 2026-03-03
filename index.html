@@ -1,22 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QMB17BQ721"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QMB17BQ721');
-</script>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Portfolio</title>
-  <meta name="description" content="Portfolio, projects, and blog by Kananelo Ramathe." />
-  <link rel="icon" href="images/me.jpg" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Hangman</title>
+  <link rel="stylesheet" href="hangman.css" />
 </head>
+
 <body>
 
   <div class="bg">
@@ -26,130 +16,112 @@
     <div class="stars"></div>
     <div class="grain"></div>
   </div>
-
-
-
-  <nav class="nav">
-    <a class="logo" href="index.html">Main Page</a>
-    <div class="links">
-      <a class="active" href="index.html">Portfolio</a>
-      <a href="cv.html">CV</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Blog</a>
-    </div>
-  </nav>
-
-  <header class="hero wrap">
-
-  <h1>Kananelo Ramathe</h1>
-
-  <div class="avatar-wrap">
-    <img class="avatar" src="images/me.jpg" alt="Photo of Kananelo Ramathe" />
-  </div>
-
-  <p>I build things and write about what I learn.</p>
-
-  <div class="cta">
-    <a class="btn small" href="files/Kananelo_Ramathe_CV.pdf" download>Download CV</a>
-    <a class="btn" href="projects.html">See my projects</a>
-    <a class="btn" href="blog.html">Read my blog</a>
-  </div>
-
-</header>
+  <div class="glow" aria-hidden="true"></div>
 
   <main class="wrap">
-    <section class="card">
-      <h2>About Your Boi</h2>
-      <p></p>
-    </section>
-
-    
-        <section class="grid">
-      <div class="card">
-        <h3>Skills</h3>
-
-        <div class="skills-list">
-
-  <div class="skill-row">
-    <span class="skill-name">HTML</span>
-    <span class="skill-level"> Advanced Beginner</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">CSS</span>
-    <span class="skill-level">Beginner</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">JavaScript</span>
-    <span class="skill-level">Beginner</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">C#</span>
-    <span class="skill-level">Intermediate</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">Microsoft Word</span>
-    <span class="skill-level">Intermediate</span>
-  </div>
-
-<div class="skill-row">
-    <span class="skill-name">PowerPoint</span>
-    <span class="skill-level">Intermediate</span>
-  </div>
-
-<div class="skill-row">
-    <span class="skill-name">Access</span>
-    <span class="skill-level">Beginner</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">Microsoft Excel</span>
-    <span class="skill-level">Intermediate</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">Design / Writing / Editing</span>
-    <span class="skill-level">Creative</span>
-  </div>
-
-  <div class="skill-row">
-    <span class="skill-name">Database Fundamentals</span>
-    <span class="skill-level">Learning</span>
-  </div>
-
-</div>
+    <header class="hero">
+      <div>
+        <a class="back" href="../projects.html">← Back to Projects</a>
+        <h1 class="title">Hangman <span class="badge">Canvas</span></h1>
+        <p class="muted">Turn-based multiplayer • One-letter-at-a-time reveal • Hints • Score history</p>
       </div>
 
-      <div class="card">
-        <h3>Highlights</h3>
-        <h3> </h3>
-        <ul>
-          <h4>My Best Projects</h4> 
-            <li>Snake Multiplayer</li>
-        </ul>
+      <div class="hero-actions">
+        <button id="newGameBtn" class="btn">New Game</button>
+        <button id="resetHistoryBtn" class="btn ghost">Reset History</button>
       </div>
+    </header>
+
+    <section class="panel">
+      <div class="settings">
+        <div class="field">
+          <label>Mode</label>
+          <select id="mode">
+            <option value="pvp" selected>Local PvP (2 Players)</option>
+            <option value="cpu">Player vs CPU</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="easy">Easy (10 lives)</option>
+            <option value="normal" selected>Normal (8 lives)</option>
+            <option value="hard">Hard (6 lives)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Category</label>
+          <select id="category">
+            <option value="media" selected>Media</option>
+            <option value="tech">Tech</option>
+            <option value="biblical">Biblical</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Hint</label>
+          <button id="hintBtn" class="btn ghost small">Show Hint (-3)</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="stat">
+          <div class="stat-label" id="p1Label">Player 1</div>
+          <div class="stat-value" id="p1Score">0</div>
+          <div class="stat-sub">Score</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Lives</div>
+          <div class="stat-value" id="lives">8</div>
+          <div class="stat-sub">Remaining</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label" id="p2Label">Player 2</div>
+          <div class="stat-value" id="p2Score">0</div>
+          <div class="stat-sub">Score</div>
+        </div>
+      </div>
+
+      <div class="status" id="status">Status: Click “New Game” to start</div>
+      <div class="hint" id="hint" hidden></div>
     </section>
 
-    <section class="card">
-      <h2>Contact</h2>
-      <p><a href="mailto:first@email.com">kani4workonly@gmail.com</a></p>
-      <p><a href="mailto:second@email.com">kananeloramathe38@gmail.com</a></p>
-      <p>Phone Number: +27 63 840 3329</p>
+    <section class="grid">
+      <article class="card">
+        <h2>Hangman</h2>
+        <div class="canvas-wrap">
+          <canvas id="hangCanvas" width="520" height="360"></canvas>
+          <div class="flash" id="flash"></div>
+        </div>
 
-      <button id="hiBtn">Say Hello</button>
-      <p id="msg" class="muted"></p>
+        <div class="word" id="word">—</div>
+
+        <div class="guess-row">
+          <input id="guessInput" class="input" maxlength="1" placeholder="Type a letter…" />
+          <button id="guessBtn" class="btn">Guess</button>
+          <button id="skipBtn" class="btn ghost">Skip Turn</button>
+        </div>
+
+        <div class="used">
+          <div class="used-title">Used letters</div>
+          <div class="used-list" id="usedLetters">—</div>
+        </div>
+
+        <pre class="log" id="log">Battle log will appear here…</pre>
+      </article>
+
+      <aside class="card">
+        <h2>Score History</h2>
+        <p class="muted">Saved in your browser (localStorage).</p>
+        <div class="history" id="history"></div>
+      </aside>
     </section>
   </main>
 
-  <footer class="footer">
-    <small>© <span id="year"></span> Kananelo Ramathe's Website</small>
-  </footer>
-
-  <button id="topBtn" class="top-btn" aria-label="Back to top">↑</button>
-  <script src="script.js"></script>
-
+  <script src="hangman.js"></script>
 </body>
 </html>
